@@ -1,0 +1,188 @@
+/* --------------------------------------------- */
+/* -----Header----- */
+/* --------------------------------------------- */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 16%;
+  margin-block-start: 9rem;
+  margin-block-end: 7rem;
+}
+
+.header-textbox {
+  max-inline-size: 576px;
+}
+
+/* Header image */
+
+header > img {
+  transform: translateY(-20%);
+  z-index: -1;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  letter-spacing: -0.4px;
+}
+
+h1 span {
+  display: block;
+  color: var(--color-brand-light);
+}
+
+header p {
+  font-size: var(--fs-large);
+  color: var(--color-text-secondary);
+  margin-block-start: 1.3rem;
+  margin-block-end: 3.8rem;
+}
+
+.header-btns {
+  display: flex;
+  gap: var(--gutter-small);
+}
+
+@media (max-width: 22.188em) {
+  .header-btns {
+    flex-direction: column;
+  }
+}
+
+.btn:link,
+.btn:visited {
+  font-size: var(--fs-small);
+  color: var(--color-text-primary);
+  padding-block: var(--gutter-small);
+  padding-inline: var(--gutter-medium);
+  border-radius: 2rem;
+  transition: 200ms filter ease-in;
+}
+
+.btn:hover,
+.btn:focus {
+  filter: brightness(110%);
+}
+
+.btn-primary {
+  background-color: var(--color-brand);
+  border: 0.1rem solid var(--color-brand-light);
+}
+
+.btn-secondary {
+  background-color: var(--bg-btn);
+  border: 0.1rem solid var(--color-border);
+}
+
+/* 960px */
+
+@media (max-width: 60em) {
+  header {
+    --fs-h1: 3.2rem;
+    --fs-large: var(--fs-medium);
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  header p {
+    margin-block-end: var(--gutter-medium);
+  }
+
+  header > img {
+    transform: translate(0);
+    margin-block-end: var(--gutter-large);
+  }
+
+  .header-btns {
+    gap: var(--gutter-x-small);
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------- */
+/* -----Features----- */
+/* --------------------------------------------- */
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.33%;
+  color: var(--color-text-secondary);
+  margin-block-end: 11rem;
+}
+
+/* feature title  */
+
+h2 {
+  font-size: var(--fs-h2);
+  max-inline-size: 226px;
+  color: var(--color-text-primary);
+  margin-block-start: var(--gutter-medium);
+  margin-block-end: var(--gutter-small);
+  line-height: 1.6;
+}
+
+.feature {
+  flex-basis: 23.5%;
+  background-color: var(--bg-cards);
+  border-radius: 1rem;
+  font-size: var(--fs-small);
+  padding: 2.6rem;
+  border: 1px solid var(--color-border);
+}
+
+.feature .emoji {
+  display: inline-block;
+  border-radius: 0.8rem;
+  font-size: var(--fs-large);
+  background-color: var(--bg-emoji);
+  padding: 0.9rem 1.2rem;
+}
+
+/* 960px */
+
+@media (max-width: 60em) {
+  main {
+    margin-block-end: 8rem;
+    gap: var(--fs-medium);
+  }
+
+  .feature {
+    flex-basis: 48%;
+  }
+
+  /* feature title  */
+
+  h2 {
+    max-inline-size: 100%;
+  }
+}
+
+/* 640px */
+
+@media (max-width: 40em) {
+  .feature {
+    flex-basis: 100%;
+  }
+}
+
+/* --------------------------------------------- */
+/* -----Footer----- */
+/* --------------------------------------------- */
+
+footer {
+  font-size: var(--fs-small);
+  text-align: center;
+  border-top: 0.1rem solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding-block: 3.5rem;
+  margin-block-start: auto;
+}
+
+footer p:first-child {
+  margin-block-end: var(--gutter-micro);
+}
+
+/*  2. Set aria-expanded for menu buttons */
