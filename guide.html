@@ -24,7 +24,9 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="guide.css">
   <script src="script.js" defer></script>
+  <script src="guide.js" defer></script>
   <link rel="shortcut icon" href="images/favicon.svg" type="image/svg">
   <title>How to build modern docs with VitePress | Adocs</title>
 </head>
@@ -33,150 +35,914 @@
 
   <!-------------------------- Navigation -------------------------->
 
-  <div>
 
+  <div>
 
     <div class="nav-container">
 
-      <!-- Skip to content link -->
-      <a id="skip-to-content-link" class="btn btn-secondary" href="#main-content">Skip to content</a>
+      <div class="nav-container-inner">
 
-      <!-- Nav logo -->
-      <a href="/" class="logo" title="link to home page">
-        <img src="images/favicon.svg" alt="Adocs" title="link to home page">
-        <span>Adocs</span>
-      </a>
+        <!-- Skip to content link -->
+        <a id="skip-to-content-link" class="btn btn-secondary" href="#main-content">Skip to content</a>
 
-      <!-- Hamburger menu -->
+        <!-- Hamburger menu -->
+        <div class="hamburger-menu">
 
-      <div class="hamburger-menu">
+          <nav id="main-nav" aria-label="main navigation">
+            <!-- The <menu> and <ul> both represent an unordered list of items. <ul> primarily contains items for display, 
+                while <menu> represent for interactive items -->
 
-        <nav>
-          <!-- The <menu> and <ul> both represent an unordered list of items. <ul> primarily contains items for display, 
-              while <menu> represent for interactive items -->
+            <menu role="list">
+              <li><a href="https://adocs.vercel.app/about">About</a></li>
+              <li><a href="https://adocs.vercel.app/contact">Contact</a></li>
+              <li><a href="guide.html">Guide</a></li>
+              <li><a href="https://adocs.vercel.app/configs">Configs</a></li>
+              <!-- aria-haspopup attribute set to true to indicate that it has a popup menu  -->
+              <li class="dropdown">
 
-          <menu role="list">
-            <li><a href="https://adocs.vercel.app/about">About</a></li>
-            <li><a href="https://adocs.vercel.app/contact">Contact</a></li>
-            <li><a href="guide.html">Guide</a></li>
-            <li><a href="https://adocs.vercel.app/configs">Configs</a></li>
-            <!-- aria-haspopup attribute set to true to indicate that it has a popup menu  -->
-            <li class="dropdown">
+                <button class="dropdown-link" aria-expanded="false" aria-haspopup="true"> <span>Changelog</span>
+                  <svg class="arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px"
+                    class="text-icon" data-v-6ffb57d3="">
+                    <path
+                      d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z">
+                    </path>
+                  </svg>
+                  <svg class="plus-sign" height="14px" width="14px" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="button-icon" data-v-5bc84358="">
+                    <path
+                      d="M18.9,10.9h-6v-6c0-0.6-0.4-1-1-1s-1,0.4-1,1v6h-6c-0.6,0-1,0.4-1,1s0.4,1,1,1h6v6c0,0.6,0.4,1,1,1s1-0.4,1-1v-6h6c0.6,0,1-0.4,1-1S19.5,10.9,18.9,10.9z">
+                    </path>
+                  </svg>
+                </button>
 
-              <button class="dropdown-link" aria-expanded="false" aria-haspopup="true"> <span>Changelog</span>
-                <svg class="arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-icon"
-                  data-v-6ffb57d3="">
-                  <path
-                    d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z">
-                  </path>
-                </svg>
-                <svg class="plus-sign" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
-                  viewBox="0 0 24 24" class="button-icon" data-v-5bc84358="">
-                  <path
-                    d="M18.9,10.9h-6v-6c0-0.6-0.4-1-1-1s-1,0.4-1,1v6h-6c-0.6,0-1,0.4-1,1s0.4,1,1,1h6v6c0,0.6,0.4,1,1,1s1-0.4,1-1v-6h6c0.6,0,1-0.4,1-1S19.5,10.9,18.9,10.9z">
-                  </path>
+                <ul class="dropdown-menu">
+                  <li><a href="#">v0.0.1</a></li>
+                  <li><a href="#">v0.0.2</a></li>
+                  <li><a href="#">v0.0.3</a></li>
+                </ul>
+
+              </li>
+            </menu>
+
+            <div class="dropdown-social">
+
+              <button class="dropdown-social-link" aria-haspopup="true" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="20px" width="20px"
+                  viewBox="0 0 24 24" class="icon" data-v-6ffb57d3="">
+                  <circle cx="12" cy="12" r="2"></circle>
+                  <circle cx="19" cy="12" r="2"></circle>
+                  <circle cx="5" cy="12" r="2"></circle>
                 </svg>
               </button>
 
-              <ul class="dropdown-menu">
-                <li><a href="#">v0.0.1</a></li>
-                <li><a href="#">v0.0.2</a></li>
-                <li><a href="#">v0.0.3</a></li>
+              <!-- Theme Switch & Social -->
+
+              <ul class="social-links">
+
+                <li class="theme-switch" title="Toggles light & dark">
+                  <p>Appearance</p>
+                  <label for="switch">
+                    <input type="checkbox" role="switch" id="switch">
+                    <span class="theme-img">
+                      <img src="images/moon.svg" alt="moon" aria-hidden="true">
+                    </span>
+                  </label>
+                </li>
+
+                <li class="social-link">
+                  <a target="_blank" rel="noopener" title="Github" href="https://github.com/devsyedmohsin">
+                    <svg height="20px" width="20px" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>GitHub</title>
+                      <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                      </path>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-link">
+                  <a target="_blank" rel="noopener" title="Twitter" href="https://dev.to/devsyedmohsin">
+                    <svg height="20px" width="20px" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>Twitter</title>
+                      <path
+                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
+                      </path>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-link">
+                  <a target="_blank" rel="noopener" title="Discord" href="https://mohsin-dev.vercel.app">
+                    <svg height="20px" width="20px" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <title>Discord</title>
+                      <path
+                        d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z">
+                      </path>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-link">
+                  <a target="_blank" rel="noopener" title="Apple" href="https://dev.to">
+                    <svg height="20px" width="20px" role="img" width="26.01" height="32" viewBox="0 0 256 315">.<path
+                        d="M213.803 167.03c.442 47.58 41.74 63.413 42.197 63.615c-.35 1.116-6.599 22.563-21.757 44.716c-13.104 19.153-26.705 38.235-48.13 38.63c-21.05.388-27.82-12.483-51.888-12.483c-24.061 0-31.582 12.088-51.51 12.871c-20.68.783-36.428-20.71-49.64-39.793c-27-39.033-47.633-110.3-19.928-158.406c13.763-23.89 38.36-39.017 65.056-39.405c20.307-.387 39.475 13.662 51.889 13.662c12.406 0 35.699-16.895 60.186-14.414c10.25.427 39.026 4.14 57.503 31.186c-1.49.923-34.335 20.044-33.978 59.822M174.24 50.199c10.98-13.29 18.369-31.79 16.353-50.199c-15.826.636-34.962 10.546-46.314 23.828c-10.173 11.763-19.082 30.589-16.678 48.633c17.64 1.365 35.66-8.964 46.64-22.262">
+                      </path></svg>
+                  </a>
+                </li>
+
               </ul>
 
-            </li>
-          </menu>
+            </div>
 
-          <div class="dropdown-social">
+          </nav>
 
-            <button class="dropdown-social-link" aria-haspopup="true" aria-expanded="false">
-              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 24 24"
-                class="icon" data-v-6ffb57d3="">
-                <circle cx="12" cy="12" r="2"></circle>
-                <circle cx="19" cy="12" r="2"></circle>
-                <circle cx="5" cy="12" r="2"></circle>
-              </svg>
-            </button>
+        </div>
 
-            <!-- Theme Switch & Social -->
+        <!-- Hamburger menu button -->
 
-            <ul class="social-links">
-
-              <li class="theme-switch" title="Toggles light & dark">
-                <p>Appearance</p>
-                <label for="switch">
-                  <input type="checkbox" role="switch" id="switch">
-                  <span class="theme-img">
-                    <img src="images/moon.svg" alt="moon" aria-hidden="true">
-                  </span>
-                </label>
-              </li>
-
-              <li class="social-link">
-                <a target="_blank" rel="noopener" title="Github" href="https://github.com/devsyedmohsin">
-                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>GitHub</title>
-                    <path
-                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
-                    </path>
-                  </svg>
-                </a>
-              </li>
-
-              <li class="social-link">
-                <a target="_blank" rel="noopener" title="Twitter" href="https://dev.to/devsyedmohsin">
-                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>Twitter</title>
-                    <path
-                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
-                    </path>
-                  </svg>
-                </a>
-              </li>
-
-              <li class="social-link">
-                <a target="_blank" rel="noopener" title="Discord" href="https://mohsin-dev.vercel.app">
-                  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>Discord</title>
-                    <path
-                      d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z">
-                    </path>
-                  </svg>
-                </a>
-              </li>
-
-              <li class="social-link">
-                <a target="_blank" rel="noopener" title="Apple" href="https://dev.to">
-                  <svg role="img" width="26.01" height="32" viewBox="0 0 256 315">.<path
-                      d="M213.803 167.03c.442 47.58 41.74 63.413 42.197 63.615c-.35 1.116-6.599 22.563-21.757 44.716c-13.104 19.153-26.705 38.235-48.13 38.63c-21.05.388-27.82-12.483-51.888-12.483c-24.061 0-31.582 12.088-51.51 12.871c-20.68.783-36.428-20.71-49.64-39.793c-27-39.033-47.633-110.3-19.928-158.406c13.763-23.89 38.36-39.017 65.056-39.405c20.307-.387 39.475 13.662 51.889 13.662c12.406 0 35.699-16.895 60.186-14.414c10.25.427 39.026 4.14 57.503 31.186c-1.49.923-34.335 20.044-33.978 59.822M174.24 50.199c10.98-13.29 18.369-31.79 16.353-50.199c-15.826.636-34.962 10.546-46.314 23.828c-10.173 11.763-19.082 30.589-16.678 48.633c17.64 1.365 35.66-8.964 46.64-22.262">
-                    </path></svg>
-                </a>
-              </li>
-
-            </ul>
-
-          </div>
-
-        </nav>
+        <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav">
+          <span></span>
+        </button>
 
       </div>
-
-      <!-- Hamburger menu button -->
-
-      <button class="hamburger-btn" type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
 
     </div>
 
   </div>
 
+  <!-- Menu and Return to top Buttons -->
+
+  <nav class="guide-menu">
+
+    <button class="menu-btn" type="menu" aria-haspopup="menu" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 24 24" height="16px">
+        <path d="M17,11H3c-0.6,0-1-0.4-1-1s0.4-1,1-1h14c0.6,0,1,0.4,1,1S17.6,11,17,11z"></path>
+        <path d="M21,7H3C2.4,7,2,6.6,2,6s0.4-1,1-1h18c0.6,0,1,0.4,1,1S21.6,7,21,7z"></path>
+        <path d="M21,15H3c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S21.6,15,21,15z"></path>
+        <path d="M17,19H3c-0.6,0-1-0.4-1-1s0.4-1,1-1h14c0.6,0,1,0.4,1,1S17.6,19,17,19z"></path>
+      </svg>
+      Menu
+    </button>
+
+    <a href="#">Return to top</a>
+
+  </nav>
+
   <!-------------------------- Guide ------------------------------->
 
+  <div class="guide">
+
+    <aside class="aside">
+
+      <div>
+
+        <a href="/" class="logo" title="link to home page">
+          <img src="images/favicon.svg" alt="Adocs" title="link to home page">
+          <span>Adocs</span>
+        </a>
+
+        <details open>
+          <summary> Section A <img src="images/minus.svg" alt=""></summary>
+          <a href="#">Introduction</a>
+          <a href="#">Getting Started</a>
+        </details>
+
+        <details open>
+          <summary class="summary">Section B</summary>
+          <a href="#">Introduction</a>
+          <a href="#">Getting Started</a>
+        </details>
+
+        <details open>
+          <summary>Section B <img src="images/minus.svg" alt=""></summary>
+          <a href="#">Introduction</a>
+          <a href="#">Getting Started</a>
+        </details>
+      </div>
+
+    </aside>
+
+    <main class="article">
+
+      <article>
+
+        <header>
+
+          <picture>
+            <img src="images/article-header.png" alt="How to build docs with vitepress" srcset="">
+          </picture>
+
+          <h1>How to build modern docs with VitePress</h1>
+
+        </header>
+
+        <div class="card info">
+          <p>INFO</p>
+          <p>Documentation is a crucial aspect of software development that is often neglected by developers due to
+            the
+            hassle of maintaining one, or even choosing the right tools to use. This is why it's important to use
+            tools
+            that simplify this process. In this tutorial, you'll learn how to build a complete docs site quickly by
+            utilizing a modern tool called, VitePress.</p>
+        </div>
+
+        <section id="definition">
+          <h2>Definition</h2>
+          <p><a href="#">VitePress</a> is a simple and performant static site generator built on top of <a
+              href="#">Vite</a> for
+            creating docs in a matter of minutes. It is powered by Vuejs, and Vite with built in customizable
+            components. VitePress powers some popular documentation sites like <a href="#">Vuejs</a> , <a
+              href="#">Vitest</a> , <a href="">faker.js</a> , and Vite itself.
+          </p>
+        </section>
+
+        <section id="Prerequisites">
+
+          <h2>Prerequisites</h2>
+
+          <p>To follow along with this tutorial, you need to have a basic understanding of the following:</p>
+
+          <ul>
+            <li> <a href="#"> Markdown</a> syntax</li>
+            <li>Brief understanding of NPM and Vite</li>
+          </ul>
+
+          <p>
+            Here's a screenshot of what you'll be building at the end of this tutorial.
+          </p>
+
+          <img src="images/article-prerequisities.png" loading="lazy" alt="homepage">
+
+        </section>
+
+        <section id="Step. 1: Create a new project">
+
+          <h2>Step. 1: Create a new project</h2>
+
+          <p>If you already have a folder created, you can skip this step to the next one if not, use the following
+            command to create a project folder and move into the folder.</p>
+
+          <pre>
+            <code>
+              <span class="grey">
+mkdir project-name
+<span class="blue">cd</span> project-name
+</span></code>
+          </pre>
+
+          <p>Next you need to initialize with your preferred package manager. I'll be using NPM for the rest of this
+            guide.</p>
+
+          <pre><code> <span class="grey">
+npm init
+// or use this <span class="blue">command</span>  <span class="green">if</span> you want to skip all the questions
+npm init -y
+          </span></code></pre>
+
+          <p>If you used the first command, you'll be prompted with certain questions, complete them as appropriate.
+            After a successful operation, you should have a package.json file in your root directory; This is where the
+            VitePress dev dependency will be installed.</p>
+
+        </section>
+
+        <section id="Step. 2: Install VitePress">
+
+          <h2>Step. 2: Install VitePress</h2>
+
+          <p>Next step is to add VitePress and Vue as dev dependencies to your project.</p>
+
+          <p>You've successfully installed VitePress and Vue and added it as a dev dependency. Now you can start
+            creating creating your respective doc files, but before you do that, I believe it's essential to explain how
+            VitePress works.</p>
+
+        </section>
+
+        <section id="How does VitePress work?">
+          <h2>How does VitePress work?</h2>
 
 
+          <p>VitePress makes use of Markdown <code>.md</code> files for it's markup which is automatically converted
+            into static
+            HTML. In other for this to work, a special folder called <code> docs</code> is created in the root
+            directory.</p>
+
+          <p>This folder behaves similar to the <code>pages</code> folder in NextJS, where any <code>.js</code>file
+            created in the
+            directory is
+            automatically treated as a web page. In this case a file called <code>index.md</code> will be the treated as
+            <code>index.html</code>
+            and serve as the root of your docs template.
+          </p>
+
+          <p>Now you understand how that works, you can now create your respective doc files.</p>
+
+        </section>
+
+        <section id="Step 3. Create respective files">
+          <h2>Step 3. Create respective files</h2>
+          <p>You can create the docs folder and the index.md file manually, or you can do it with the terminal like a
+            hacker.</p>
+          <pre><code> <span class="grey"> mkdir docs <span class="blue">&&</span> echo <span class="string">'# Hello VitePress'</span> > docs/index.md</span></code></pre>
+
+          <p>This command is simply creating a folder called docs and adding an <a href="#">index.md</a> file containing
+            a h1 element
+            that says, "Hello World".</p>
+
+          <img src="images/article-files.png" loading="lazy" alt="files structure">
+
+
+          <p>With this, you can boot up your dev environment to see what has been created so far.</p>
+
+        </section>
+
+        <section id="Step 4: Boot up dev environment">
+          <h2>Step 4: Boot up dev environment</h2>
+          <p>In other to run your docs locally, you need to add the following scripts inside the package.json file.
+            Simply copy the code below and replace it with the "script" object.
+            js</p>
+          <pre><code>
+<span class="grey">// package.json</span>
+
+<span class="blue">"</span><span class="string">scripts</span><span class="blue"></span>">"</span>: {
+<span class="red">"docs:dev"</span><span class="blue">: "</span><span class="string">vitepress dev docs</span><span class="blue"></span>",
+<span class="red">"docs:build"</span> <span class="blue">: "</span><span class="string">vitepress build docs</span><span class="blue">",</span>
+<span class="red">"docs:serve"</span><span class="blue">: "</span><span class="string">vitepress serve docs</span><span class="blue">
+},</span>
+  
+            </code></pre>
+          <p>Finally, the documentation site can be served on a local server by running the command below:
+            bash</p>
+          <pre><code class="grey">npm run docs:dev</code></pre>
+          <p>This will start a hot-reloading development server at http://localhost:5173, and you can visit it to see
+            your docs site.</p>
+          <h3>Output</h3>
+
+          <img src="images/article-docssite.png" loading="lazy" alt="article docsite">
+
+          <p>All you had to do was add the markup and VitePress handled the looks from it's template engine. In the
+            next
+            session, you'll learn how you can customize the docs to fit your needs.</p>
+        </section>
+
+        <section id="How to customize your docs">
+          <h2>How to customize your docs</h2>
+
+          <p>First create a .vitepress folder inside the docs directory you created earlier on. This is where all
+            VitePress-specific files will be placed. Inside this new directory, you need a config.js file. Again, you
+            can
+            use the terminal command as a hacker.
+            bash</p>
+
+          <pre><code class="grey">
+mkdir .vitepress <span class="blue">&&</span> touch <span class="string">.vitepress/config.js</span>
+          </code></pre>
+
+          <p>To test this config file, you can start by changing the meta title and description of your docs site.
+            Copy
+            this markup and paste into the config.js file.
+            js</p>
+
+          <pre><code class="grey">
+  // .vitepress/config.js
+
+ <span class="green">export default {</span> 
+ <span class="red">title:</span><span class="string">"Adocs",</span> 
+ <span class="red">description:</span><span class="string">"An awesome docs template built by me",</span>
+  };</code></pre>
+
+          <p>If you check the dev tools, you should see the changes in the meta title and description.</p>
+
+          <img src="images/article-title.png" loading="lazy" alt="devtools showing title and description tags">
+
+        </section>
+
+        <section id="Title and Logo">
+          <h2>Title and Logo</h2>
+          <p>In other to change the logo title and add an image, copy the markup below and paste it into a new object
+            called themeConfig inside the same config.js file. This will overwrite the current title and add a logo
+            your
+            docs site.
+            js</p>
+          <pre><code>
+<span class="grey">
+// config.js
+
+<span class="blue"> 
+  export default {
+  themeConfig: { </span>
+ <span class="red">logo:</span><span class="green">"/logo.svg",</span>
+ <span class="red">siteTitle:</span><span class="green">"Adocs",</span>
+  },
+};
+</span>
+</code></pre>
+
+          <p>For the image source, you can pass in an image URL or specify the path to a local image. To do it
+            locally,
+            make
+            sure you place the image within the public directory.</p>
+          <h3>Output</h3>
+
+          <img src="images/articleimg.png" loading="lazy" alt="Path specified for local image">
+
+
+          <div class="card warning">
+            <p>WARNING</p>
+            <p> Note: files in the public directory are served at the root path. So instead of
+              ../public/logo.svg, just
+              use
+              /logo.svg.
+            </p>
+          </div>
+
+        </section>
+
+        <section id="Navbar">
+          <h2>Navbar</h2>
+
+          <p>Customizing the Navbar is a pretty straightforward process as well. Inside your themeConfig file, paste the
+            markup below. Here we have an object that contains two properties. The anchor text text, and the path, link
+            defines the URL path.
+            js</p>
+
+
+          <pre><code class="grey">
+// .vitepress/config.js
+
+{
+// ...
+nav: [
+{ <span class="red">text:</span> <span class="string">"About", link: "/about" },</span>
+{ <span class="red">text:</span> <span class="string"> "Contact", link: "/contact" },</span>
+{ <span class="red">text:</span> <span class="string">"Guide", link: "/guide" },</span>
+{ <span class="red">text:</span> <span class="string">"Configs", link: "/configs" },</span>
+{ <span class="red">text:</span> <span class="string">"Changelog", link: "https://github.com/Evavic44" </span> },
+], // ...
+}
+
+</code></pre>
+
+          <p>Essentially navigating to http://localhost:5173/about should take you to an about page(though we haven't
+            created that yet).</p>
+
+          <h3>Output</h3>
+
+
+          <img src="images/article-nav.png" loading="lazy" alt="main navigation">
+
+          <p> Navigation links can also be dropdown menus too. To add one, simply replace any of the links property with
+            the items object which contains an array of links.</p>
+
+          <pre><code>// .vitepress/config.js
+{
+  text: "Changelog",
+  items: [
+    { text: "v0.0.1", link: "/item-1" },
+    { text: "v0.0.2", link: "/item-2" },
+    { text: "v0.0.3", link: "/item-3" },
+  ],
+ },</code></pre>
+
+          <p>Now changelog will become a dropdown menu with the respective links you pass inside.</p>
+
+          <h3>Output</h3>
+
+          <img src="images/article-dropdown.png" loading="lazy" alt="dropdown-menu">
+
+
+
+        </section>
+
+        <section id="Social Icons">
+          <h2>Social Icons</h2>
+
+          <p>Navigation menus usually have social icons visitors can use to visit your social platforms. To add that,
+            define a new object called socialLinks inside themeConfig and simply pass in the social icon and the link
+            you want it to navigate to.</p>
+
+          <pre><code>
+// .vitepress/config.js
+socialLinks: [
+ { icon: "github", link: "https://github.com/Evavic44/adocs" },
+  { icon: "twitter", link: "https://twitter.com/victorekea" },
+  { icon: "discord", link: "", target: "_blank" },
+  }]        
+          </code></pre>
+
+          <p> By default only 7 popular icons are provided. If you want to add a custom icon, use the SVG property to
+            define
+            an svg image.</p>
+
+          <pre><code>
+   }
+   "discord"
+   "facebook"
+   "github"
+   "instagram"
+   "linkedin"
+   "slack"
+   "twitter"
+   "youtube"
+   { svg: string };
+{
+            </code></pre>
+
+          <div class="card warning">
+            <p>WARNING</p>
+            <p>For the SVG icon, make sure you add the role="img" property, this allows the string convert it
+              properly.</p>
+          </div>
+
+
+          <img src="images/artticle-nav2.png" loading="lazy" alt="home page navigation">
+
+
+        </section>
+
+        <section id="Sidebar">
+          <h2>Sidebar</h2>
+          <p>VitePress also comes with built-in components like sidebar menus. To add a sidebar, create an object
+            called
+            sidebar and inside we add nested objects that takes in three values; the nested title, collapsible
+            functionality (Default is set to true) and the nested links.
+            js</p>
+          <pre><code>
+  // .vitepress/config.j  sidebar: [
+
+  {
+    text: "Section A",
+    collapsible: true,
+    items: [
+      { text: "Introduction", link: "/introduction" },
+      { text: "Getting Started", link: "/getting-started" },
+    ],
+  },
+  {
+    text: "Section B",
+    collapsible: false,
+    items: [
+      { text: "Introduction", link: "/introduction" },
+      { text: "Getting Started", link: "/getting-started" },
+    ],
+  },
+  {
+    text: "Section C",
+    collapsible: true,
+    items: [
+      { text: "Introduction", link: "/introduction" },
+      { text: "Getting Started", link: "/getting-started" },
+    ],
+  },
+],
+
+          </code></pre>
+          <p>By adding collapsible: "true" to the sidebar object, it shows a toggle button to hide/show each section.
+            You can create as much sections as you want.</p>
+          <h3>Output</h3>
+
+          <img src="images/article-guide.png" loading="lazy" alt="guide page">
+
+          <p>You can see section B is not collapsible and we have that aesthetic next page button on the bottom of the
+            page.</p>
+        </section>
+
+        <section id="Page Routing">
+          <h2>Page Routing</h2>
+
+          <p>As explained earlier, VitePress automatically converts every .md file inside the root of the docs
+            directory
+            to static html that can be accessed in the address bar. For instance the index.md is converted to
+            index.html, and about.md, about.html and so on.</p>
+
+          <p>Since you've created your nav links and pointed them to their respective URLs, you can access these pages
+            easily by creating them.</p>
+
+          <pre><code>
+docs/
+├── .vitepress/
+│   └── config.js`
+│   └── logo.svg
+├── about.md
+├── contact.md
+├── guide.md
+├── configs.md
+└── get-started.md
+            </code></pre>
+
+          <p>Create these files inside your docs folder and add a simple markup inside them just to see how this
+            works. This page is basic markdown so all your markdown syntax like links, code blocks, headings, etc
+            works here.</p>
+          <p>Just for testing purposes, copy this markdown content and paste it inside any of the .md file you just
+            created.</p>
+
+          <h3> Output</h3>
+
+
+          <img src="images/article-pages.gif" loading="lazy" alt="files inside your docs folder">
+
+          <p> Great! You've set-up the docs, added a navigation menu with dropdown feature, added a sidebar, and
+            customized
+            the links to navigate to different pages. Next up, let's work on the home page.</p>
+
+        </section>
+
+        <section id="Customizing the home page">
+          <h2>Customizing the home page</h2>
+          <p> Just like every other components, VitePress provides us with markup for building the home page. I've
+            broken it down into three parts: Hero, features, and footer section.</p>
+        </section>
+
+        <section>
+          <h2 id="Hero Section">Hero Section</h2>
+          <p>First, we'll start with the hero section. Replace the Hello World text in the index.md page with the
+            following markup.</p>
+          <pre><code># docs/index.md
+---
+layout: home
+
+hero:
+  name: Adocs
+  text: Static docs template built with VitePress.
+  image:
+    src: /logo-big.svg
+    alt: Adocs logo
+  tagline: A free to use template for creating docs for your projects
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /get-started
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/evavic44/adocs-template
+---</code></pre>
+        </section>
+
+        <section id="Features Section">
+          <h2>Features Section</h2>
+          <p>Additionally, you can also add a features section after the hero section. Simply paste the code below
+            under
+            the hero objects.</p>
+          <pre><code># /docs/index.md
+---
+link: https://github.com/evavic44/adocs-template
+
+features:
+- icon: ⚡️
+title: Adocs, The DX that can't be beat
+details: Lorem ipsum...
+- icon: 🎉
+title: Power of Vue meets Markdown
+details: Lorem ipsum...
+- icon: 🔥
+title: Simple and minimal, always
+details: Lorem ipsum...
+- icon: 🎀
+title: Stylish and cool
+details: Lorem ipsum...
+---</code></pre>
+          <h3>Output</h3>
+
+          <img src="images/article-custom-header.png" loading="lazy" alt="Custom header">
+
+        </section>
+
+        <section id="Footer">
+          <h2>Footer</h2>
+          <p>You can add a footer message on the bottom of the page but this will only show up in the home page.</p>
+          <div class="card warning">
+            <p>
+              WARNING
+            </p>
+            <p>he footer will not be displayed when the SideBar is visible. To add the footer component, go to the
+              config.js file and paste the markup inside the themeConfig object</p>
+          </div>
+          <pre><code>
+// .vitepress/config.js
+footer: {
+  message: "Released under the MIT License.",
+  copyright: "Copyright © 2022-present Adocs",
+},</code></pre>
+          <h3>Output</h3>
+
+          <img src="images/article-footer.png" loading="lazy" alt="footer with copyright text">
+
+        </section>
+
+        <section id="Custom CSS">
+          <h2>Custom CSS</h2>
+          <p>The default theme CSS is customized by overriding root level CSS variables. If you want, you can check
+            out the full list of css variables customizable.</p>
+          <p>To do get started, create a .vitepress/theme directory, and inside this theme folder, add an index.js and
+            custom.css file. If you've been following along, you can use the terminal command below to do this
+            quickly.</p>
+          <pre><code>
+mkdir docs/.vitepress/theme && touch docs/.vitepress/theme/index.js && touch docs/.vitepress/theme/custom.css
+            </code></pre>
+          <p>If you ran into any issues with the terminal command, just create the files manually and move on to the
+            next step.
+
+          </p>
+          <p>Here's an overview of the folder structure</p>
+          <pre><code>
+              docs/
+├── .vitepress/
+│   ├── config.js
+│   └── theme/
+│       ├── index.js
+│       └── custom.css
+├── public/
+│   └── logo.svg
+├── about.md
+├── contact.md
+├── guide.md
+├── configs.md
+└── get-started.md
+            </code></pre>
+          <p>After creating these files, inside the .vitepress/theme/index.js file, paste the import commands.</p>
+          <pre><code>
+// .vitepress/theme/index.js
+import DefaultTheme from "vitepress/theme";
+import "./custom.css";
+
+export default DefaultTheme;
+</code></pre>
+
+          <h3>Color Theme</h3>
+          <p>The colors are controlled by the CSS variables. You can simply replace them with any colors you want.</p>
+
+          <div class="card tip">
+            <p>Tip</p>
+            <p>This color has a provision for both light and dark mode. So make sure you change them accordingly.</p>
+          </div>
+
+          <pre><code>
+/* .vitepress/theme/custom.css */
+
+:root {
+  --vp-c-brand: rgb(255, 115, 64);
+  --vp-c-brand-light: rgb(255, 87, 25);
+  --vp-c-brand-lighter: rgb(255, 115, 64);
+  --vp-c-brand-dark: #ff622d;
+  --vp-c-brand-darker: rgb(226, 60, 0);
+
+  --vp-c-sponsor: #fd1d7c;
+}
+
+          </code></pre>
+
+          <p>If you don't see the effects immediately, try ending the server and starting it again.
+          </p>
+          <p>Aside from the color themes, you can also override other things like, font family, typography, layout,
+            breakpoints, etc.</p>
+
+        </section>
+
+        <section>
+          <h2>Fonts</h2>
+          <p> <a href="">Google</a> fonts can be imported inside the CSS file to override the default font family.
+          </p>
+          <pre><code>
+              
+@import url(https://fonts.googleapis.com/css?family=Space+Mono:regular,italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Space+Grotesk:regular,italic,700,700italic);
+
+:root {
+  --vp-c-brand: #ff7340;
+  --vp-c-brand-light: #ff5719;
+  --vp-c-brand-lighter: #ff7340;
+  --vp-c-brand-lighter: rgba(255, 135, 23, 0.25);
+  --vp-c-brand-dark: #ff622d;
+  --vp-c-brand-darker: #e23c00;
+
+  --vp-c-sponsor: #fd1d7c;
+
+  /* Typography */
+  --vp-font-family-base: "Space Grotesk", "Inter var experimental", "Inter var",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+  /* Code Snippet font */
+  --vp-font-family-mono: "Space Mono", Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+              </code></pre>
+          <p>With the --vp-font-family-base variable you can change the main font and --vp-font-family-mono, the
+            font
+            for code snippets.</p>
+
+          <h3>Output</h3>
+
+          <img src="images/article-header.png" loading="lazy" alt="How to build docs using vitepress">
+
+
+          <p>You've successfully customized the theme and changed the font family using CSS. Though there's more you
+            can do in regards to styling, but at this point, I'm sure it's clearer how you can customize your docs
+            with CSS. Let's discuss hosting in the next section.</p>
+
+
+        </section>
+
+        <section>
+          <h2>Hosting</h2>
+          <p>You can publish or host your docs site when you're done to different platforms like: Netlify, Vercel,
+            AWS Amplify, etc.</p>
+          <p>First, run the build command</p>
+          <pre><code>npm run docs:build</code></pre>
+          <p>This should create a new dist folder that contains all the static files of your docs. In your hosting
+            service, add these commands to their respective fields. Build command: npm run docs:build Output
+            directory: docs/.vitepress/dist
+          </p>
+          <p>This should create a new dist folder that contains all the static files of your docs. In your hosting
+            service, add these commands to their respective fields.</p>
+          <ul>
+            <li>Build command: npm run docs:build</li>
+            <li>Output directory: docs/.vitepress/dist</li>
+          </ul>
+
+          <img src="images/article-deploy.png" loading="lazy" alt="Settings menu vercel">
+
+
+          <p>After editing the settings, save, and deploy.</p>
+        </section>
+
+        <section>
+          <h2>Conclusion</h2>
+          <p>In this tutorial, you've set-up a full-fledged documentation site and customized it using CSS and
+            VitePress built-in components. However, this tutorial only covers a fragment of what is possible with
+            VitePress, to learn more, check out the VitePress docs.</p>
+        </section>
+
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="#">Live Demo</a></li>
+            <li><a href="#">GitHub Repo</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <p>If you are an open source ardent like myself or you enjoy hearing about such cool projects, do follow
+            me
+            on my socials so you don't miss my next post. Cheers. 🍷</p>
+          <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="https://mohsin-dev.vercel.app">Portfolio</a></li>
+          </ul>
+
+        </section>
+
+        <section>
+          <a href="#" class="link">
+            <span>Next page</span>
+            <span>Introduction</span>
+          </a>
+        </section>
+
+
+
+      </article>
+
+    </main>
+
+    <section class="section-links">
+
+      <h2>On this page</h2>
+
+      <nav id="secondary-nav" aria-label="secondary navigation">
+
+        <!-- when we set list-style none in some browsers (i.e Safari) list role is removed so we need to manually set it   -->
+
+        <ul role="list">
+          <li><a href="#definition">Definition</a></li>
+          <li><a href="#Prerequisites">Prerequisites</a></li>
+          <li><a href="#Step. 1: Create a new project">Step. 1: Create a new project</a></li>
+          <li><a href="#Step. 2: Install VitePress">Step. 2: Install VitePress</a></li>
+          <li><a href="#How does VitePress work?">How does VitePress work?</a></li>
+          <li><a href="#Step 3. Create respective files">Step 3. Create respective files</a></li>
+          <li><a href="#Step 4: Boot up dev environment">Step 4: Boot up dev environment</a></li>
+          <li><a href="#How to customize your docs">How to customize your docs</a></li>
+          <li><a href="#Title and Logo">Title and Logo</a></li>
+          <li><a href="#Navbar">Navbar</a></li>
+          <li><a href="#Social Icons">Social Icons</a></li>
+          <li><a href="#Sidebar">Sidebar</a></li>
+          <li><a href="#Page Routing">Page Routing</a></li>
+          <li><a href="#Customizing the home page">Customizing the home page</a></li>
+          <li><a href="#Hero Section">Hero Section</a></li>
+          <li><a href="#Features Section">Features Section</a></li>
+          <li><a href="#Footer">Footer</a></li>
+          <li><a href="#Custom CSS">Custom CSS</a></li>
+          <ul />
+
+
+      </nav>
+
+    </section>
+
+  </div>
+
+  <div class="overlay" />
 
 </body>
 

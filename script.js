@@ -1,6 +1,9 @@
 'use strict'
 
-// Theme switch
+// ---------------------------------------------------------------
+// Theme switch---------------------------------------------------
+// ---------------------------------------------------------------
+
 
 const themeSwitch = document.querySelector(".theme-switch input")
 const themeImg = document.querySelector('.theme-img img')
@@ -27,7 +30,10 @@ if (savedTheme === "true") {
   themeSwitch.checked = true
 }
 
-// Hamburger menu
+// ---------------------------------------------------------------
+// Hamburger menu-------------------------------------------------
+// ---------------------------------------------------------------
+
 
 const hamburgerBtn = document.querySelector('.hamburger-btn')
 const hamburgerMenu = document.querySelector('.hamburger-menu')
@@ -52,7 +58,10 @@ hamburgerBtn.addEventListener('click',() => {
 
 })
 
-// Changelog in dropdown
+// ---------------------------------------------------------------
+// Changelog in dropdown------------------------------------------
+// ---------------------------------------------------------------
+
 
 const changelogBtn = document.querySelector('.dropdown-link ')
 const changelogMenu = document.querySelector('.dropdown-menu')
@@ -62,3 +71,17 @@ changelogBtn.addEventListener('click',() => {
   stateImg.classList.toggle('rotate')
   changelogMenu.classList.toggle('show')
 })
+
+
+// Many of the buttons used for menus are using aria-expanded attribute which is set to false by default its important for accessibility to change there value accordingly
+
+const btnsWithAriaExpanded = Array.from(document.querySelectorAll('button[aria-expanded]'))
+
+// Default state
+
+let ariaExpanded = false
+
+btnsWithAriaExpanded.forEach(btn => btn.addEventListener('click',function(){
+  ariaExpanded = !ariaExpanded
+  btn.setAttribute('aria-expanded',ariaExpanded)
+}))
